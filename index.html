@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>👻 CodeGhost — AI Technical Interview Auditor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div class="badge-row">
+        <span class="status-pill"><span class="dot"></span> Live Audit Simulator</span>
+        <span class="tag-pill">FAANG-Style Code Review</span>
+      </div>
+      <h1>👻 CodeGhost</h1>
+      <p class="subtitle">
+        Drop your DSA solution, get a structured senior-engineer audit, and stress-test your edge cases before real interviews.
+      </p>
+
+      <div class="presets">
+        <span class="presets-label">Try a preset:</span>
+        <button type="button" class="preset-btn" data-preset="two-sum-opt">Two Sum (Hash Map)</button>
+        <button type="button" class="preset-btn" data-preset="two-sum-brute">Two Sum (Brute Force)</button>
+        <button type="button" class="preset-btn" data-preset="valid-parens">Valid Parentheses</button>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card input-card">
+        <div class="row-2">
+          <div class="field">
+            <label for="problem">Problem Statement</label>
+            <input id="problem" type="text" placeholder="e.g., Two Sum or Valid Parentheses" />
+          </div>
+
+          <div class="field">
+            <label for="language">Language</label>
+            <select id="language">
+              <option value="C++" selected>C++</option>
+              <option value="Python">Python</option>
+              <option value="JavaScript">JavaScript</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label-bar">
+            <label for="code">Your Code</label>
+            <div class="mini-actions">
+              <button type="button" id="copyCodeBtn" class="ghost-btn">Copy Code</button>
+              <button type="button" id="clearCodeBtn" class="ghost-btn">Clear</button>
+            </div>
+          </div>
+          <textarea id="code" rows="14" placeholder="Paste your C++ / Python / JS code here..." spellcheck="false"></textarea>
+        </div>
+
+        <button type="button" id="auditBtn" class="primary-btn">Run Interview Audit</button>
+        <p class="shortcut-hint">Tip: Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to run audit quickly.</p>
+      </div>
+
+      <div class="card output-card" id="outputSection">
+        <div class="output-header">
+          <div>
+            <h2>Interviewer Feedback</h2>
+            <p id="statusText" class="status-sub">Ready when you are.</p>
+          </div>
+          <div class="output-actions">
+            <span id="verdictBadge" class="verdict-badge hidden">Pending</span>
+            <button type="button" id="copyFeedbackBtn" class="ghost-btn hidden">Copy Audit</button>
+          </div>
+        </div>
+
+        <div id="skeletonLoader" class="skeleton hidden" aria-hidden="true">
+          <div class="skel-line w-40"></div>
+          <div class="skel-line w-90"></div>
+          <div class="skel-line w-80"></div>
+          <div class="skel-line w-65"></div>
+        </div>
+
+        <div id="output" class="feedback-box">No audit run yet. Pick a preset or paste your code and click Run Interview Audit.</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
